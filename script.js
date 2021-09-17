@@ -14,21 +14,38 @@ var listaFilmes = [
     "https://s2.glbimg.com/jUy8t0c-5EEneyLkLPAUDvr05So=/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2019/L/O/EfXB45RlGY6uznB5AXAQ/foto23cul-301-dvd3-d30.jpg",
     "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSGwKvL_jztJg_JZZ_xY1gv9CNGJkFEFi9EB_ZyoQCpkjOdC0jf"]
 
-// listaFilmes.push("Harry Potter");
+/*// listaFilmes.push("Harry Potter");
 
 
 
 
-// // esperimente o h1, strong
-// document.write("<p>" + listaFilmes[0] + "</p>");
-// document.write("<p>" + listaFilmes[1] + "</p>");
-// document.write("<p>" + listaFilmes[2] + "</p>");
-// document.write("<p>" + listaFilmes[3] + "</p>");
+ // esperimente o h1, strong
+ document.write("<p>" + listaFilmes[0] + "</p>");
+ document.write("<p>" + listaFilmes[1] + "</p>");
+ document.write("<p>" + listaFilmes[2] + "</p>");
+ document.write("<p>" + listaFilmes[3] + "</p>");
 
-// for (var indice = 0; indice < listaFilmes.length; indice++) {
-//     document.write("<p>" + listaFilmes[indice] + "</p>");
-// }
+ for (var indice = 0; indice < listaFilmes.length; indice++) {
+     document.write("<p>" + listaFilmes[indice] + "</p>");
+ }
 
-for (var i = 0; i < listaFilmes.length; i++) {
+for (var i = 0; i < listaFilmes.length; i++) { 
     document.write("<img src=" + listaFilmes[i] + ">")
+}*/
+
+function adicionarFilme() {
+    var filmeFavorito = document.getElementById("filme").value;
+    if(filmeFavorito.endsWith(".jpg")) {
+        listarFilmes(filmeFavorito);
+    }else{
+        console.error("Endereço de filme inválido")
+    }
+    
+    document.getElementById("filme").value = "";
+}
+
+function listarFilmes(filme) {
+    var elementoFilmeFavorito = "<img src=" + filme + ">";
+    var elementoListaFilmes = document.querySelector("#listaFilmes");
+    elementoListaFilmes.innerHTML = elementoListaFilmes.innerHTML + elementoFilmeFavorito;
 }
